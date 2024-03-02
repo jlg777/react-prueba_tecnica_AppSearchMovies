@@ -18,10 +18,10 @@ function Buscador({ onSearch }) {
     }
   };
 
-  /* const handleSearcher = (e) => {
+  const handleSearcher = (e) => {
     e.preventDefault();
-    setSearch(e.target.value);
-  };*/
+    setSearchValue(e.target.value);
+  };
 
   return (
     <div>
@@ -33,12 +33,12 @@ function Buscador({ onSearch }) {
             type="text"
             name="search"
             autoComplete="off"
-            // onChange={handleSearcher}
+            onChange={handleSearcher}
             style={{ borderColor: error ? "red" : "transparent" }}
           ></input>
           <button type="submit">Buscar..</button>
         </form>
-        <p>Resultados para: </p>
+        <p>Resultados para: {searchValue} </p>
       </header>
     </div>
   );
