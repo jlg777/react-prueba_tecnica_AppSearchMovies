@@ -1,18 +1,27 @@
 import React, { useState } from "react";
 
-function Buscador() {
-  const [search, setSearch] = useState("");
+function Buscador({ onSearch }) {
   const [error, setError] = useState(false);
+  const [searchValue, setSearchValue] = useState("");
 
   const handleSearch = (e) => {
     e.preventDefault();
     console.log(e.target.search.value);
+    //const formData = new FormData(e.currentTarget);
+    //const searchValue = Object.fromEntries(formData);
+    setSearchValue(e.target.search.value);
+    if (searchValue) {
+      onSearch(searchValue);
+      setError(false);
+    } else {
+      setError(true);
+    }
   };
 
-  const handleSearcher = (e) => {
+  /* const handleSearcher = (e) => {
     e.preventDefault();
     setSearch(e.target.value);
-  };
+  };*/
 
   return (
     <div>
@@ -24,12 +33,12 @@ function Buscador() {
             type="text"
             name="search"
             autoComplete="off"
-            onChange={handleSearcher}
+            // onChange={handleSearcher}
             style={{ borderColor: error ? "red" : "transparent" }}
           ></input>
           <button type="submit">Buscar..</button>
         </form>
-        <p>Resultados para: {search}</p>
+        <p>Resultados para: </p>
       </header>
     </div>
   );

@@ -3,10 +3,27 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 800px;
 }
 .form {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+.result {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(200px, 1fr)
+  ); /* Definir el tamaño mínimo y máximo de las columnas */
+  gap: 10px; /* Espacio entre elementos */
+}
+main {
+  width: 100%;
 }

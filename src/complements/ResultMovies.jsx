@@ -1,9 +1,10 @@
 import React from "react";
 import WithMovies from "./WithMovies";
 import WithoutMovies from "./WithoutMovies";
+import "../App.css";
 
 function ResultMovies({ movieList }) {
-  const hasMovies = false;
+  const hasMovies = true;
   return (
     <div>
       <main>
